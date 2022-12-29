@@ -14,27 +14,27 @@ let val1;
 let val2;
 let bag = {
     "_id":"9492445c-b7b6-422b-9173-ef234400c672",
-  "latitude": "32.1024",
-  "longitude": "77.5619",
+  "lat": "32.1024",
+  "lng": "77.5619",
 };
 
 // for random LONGITUDE & LATITUDE api...
 
 // LONGITUDE -180 to + 180
 function generateRandomLong() {
-  var num = (Math.random() * 180).toFixed(3);
+  var num = (Math.random() * 180).toFixed(5);
   var posorneg = Math.floor(Math.random());
   if (posorneg == 0) {
-    num = num * -1;
+    num = num * 1;
   }
   return num;
 }
 // LATITUDE -90 to +90
 function generateRandomLat() {
-  var num = (Math.random() * 90).toFixed(3);
+  var num = (Math.random() * 90).toFixed(5);
   var posorneg = Math.floor(Math.random());
   if (posorneg == 0) {
-    num = num * -1;
+    num = num * 1;
   }
   return num;
 }
@@ -45,7 +45,7 @@ router.get("/", async (req, res) => {
          data = [];
         val1 = generateRandomLong();
         val2 = generateRandomLat();
-        data.push({_id:uuidv4(), longitude: val1, latitude: val2 });
+        data.push({_id:uuidv4(), lng: val1, lat: val2 });
         
     }, 100);
 
