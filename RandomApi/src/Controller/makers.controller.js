@@ -61,7 +61,7 @@ router.get("/", async (req, res) => {
     //   console.log(data, "dataa");
     });
 
-    const randomVal = await Map.find().lean().exec();
+    const randomVal = await Map.find().limit(5).lean().exec();
     return res.status(200).send({ randomVal });
   } catch (error) {
     return res.status(500).send({ message: error.message });
